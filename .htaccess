@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteRule ^about$ about.php [L]
+RewriteRule ^contact$ contact.php [L]
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteEngine On
+RewriteRule ^([^/]+)$ index.php?route=$1 [QSA,L]

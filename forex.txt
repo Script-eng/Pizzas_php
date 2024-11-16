@@ -1,0 +1,239 @@
+<pre>
+
+<br>GetCurrentExchangeRates()<br>2024-10-21<br>Array
+(
+    [Day] => SimpleXMLElement Object
+        (
+            [@attributes] => Array
+                (
+                    [date] => 2024-10-21
+                )
+
+            [Rate] => Array
+                (
+                    [0] => 247,52000
+                    [1] => 205,30000
+                    [2] => 65,01000
+                    [3] => 267,74000
+                    [4] => 427,61000
+                    [5] => 52,02000
+                    [6] => 15,89000
+                    [7] => 53,83000
+                    [8] => 401,54000
+                    [9] => 481,81000
+                    [10] => 47,59000
+                    [11] => 2,39000
+                    [12] => 98,54000
+                    [13] => 4,40000
+                    [14] => 2,69000
+                    [15] => 246,67000
+                    [16] => 26,87000
+                    [17] => 18,55000
+                    [18] => 86,01000
+                    [19] => 33,88000
+                    [20] => 224,15000
+                    [21] => 6,43000
+                    [22] => 92,98000
+                    [23] => 80,74000
+                    [24] => 3,43000
+                    [25] => 3,86000
+                    [26] => 35,12000
+                    [27] => 281,73000
+                    [28] => 11,07000
+                    [29] => 10,80000
+                    [30] => 8,96000
+                    [31] => 369,88000
+                    [32] => 20,97000
+                )
+
+        )
+
+)
+<br>GetInfo()<br>Array
+(
+    [FirstDate] => 1949-01-03
+    [LastDate] => 2024-10-21
+    [Currencies] => SimpleXMLElement Object
+        (
+            [Curr] => Array
+                (
+                    [0] => HUF
+                    [1] => EUR
+                    [2] => AUD
+                    [3] => BGN
+                    [4] => BRL
+                    [5] => CAD
+                    [6] => CHF
+                    [7] => CNY
+                    [8] => CZK
+                    [9] => DKK
+                    [10] => GBP
+                    [11] => HKD
+                    [12] => HRK
+                    [13] => IDR
+                    [14] => ILS
+                    [15] => INR
+                    [16] => ISK
+                    [17] => JPY
+                    [18] => KRW
+                    [19] => MXN
+                    [20] => MYR
+                    [21] => NOK
+                    [22] => NZD
+                    [23] => PHP
+                    [24] => PLN
+                    [25] => RON
+                    [26] => RSD
+                    [27] => RUB
+                    [28] => SEK
+                    [29] => SGD
+                    [30] => THB
+                    [31] => TRY
+                    [32] => UAH
+                    [33] => USD
+                    [34] => ZAR
+                    [35] => ATS
+                    [36] => AUP
+                    [37] => BEF
+                    [38] => BGL
+                    [39] => CSD
+                    [40] => CSK
+                    [41] => DDM
+                    [42] => DEM
+                    [43] => EEK
+                    [44] => EGP
+                    [45] => ESP
+                    [46] => FIM
+                    [47] => FRF
+                    [48] => GHP
+                    [49] => GRD
+                    [50] => IEP
+                    [51] => ITL
+                    [52] => KPW
+                    [53] => KWD
+                    [54] => LBP
+                    [55] => LTL
+                    [56] => LUF
+                    [57] => LVL
+                    [58] => MNT
+                    [59] => NLG
+                    [60] => OAL
+                    [61] => OBL
+                    [62] => OFR
+                    [63] => ORB
+                    [64] => PKR
+                    [65] => PTE
+                    [66] => ROL
+                    [67] => SDP
+                    [68] => SIT
+                    [69] => SKK
+                    [70] => SUR
+                    [71] => VND
+                    [72] => XEU
+                    [73] => XTR
+                    [74] => YUD
+                )
+
+        )
+
+)
+<br>GetCurrencies()<br>Array
+(
+    [Currencies] => SimpleXMLElement Object
+        (
+            [Curr] => Array
+                (
+                    [0] => HUF
+                    [1] => EUR
+                    [2] => AUD
+                    [3] => BGN
+                    [4] => BRL
+                    [5] => CAD
+                    [6] => CHF
+                    [7] => CNY
+                    [8] => CZK
+                    [9] => DKK
+                    [10] => GBP
+                    [11] => HKD
+                    [12] => HRK
+                    [13] => IDR
+                    [14] => ILS
+                    [15] => INR
+                    [16] => ISK
+                    [17] => JPY
+                    [18] => KRW
+                    [19] => MXN
+                    [20] => MYR
+                    [21] => NOK
+                    [22] => NZD
+                    [23] => PHP
+                    [24] => PLN
+                    [25] => RON
+                    [26] => RSD
+                    [27] => RUB
+                    [28] => SEK
+                    [29] => SGD
+                    [30] => THB
+                    [31] => TRY
+                    [32] => UAH
+                    [33] => USD
+                    [34] => ZAR
+                    [35] => ATS
+                    [36] => AUP
+                    [37] => BEF
+                    [38] => BGL
+                    [39] => CSD
+                    [40] => CSK
+                    [41] => DDM
+                    [42] => DEM
+                    [43] => EEK
+                    [44] => EGP
+                    [45] => ESP
+                    [46] => FIM
+                    [47] => FRF
+                    [48] => GHP
+                    [49] => GRD
+                    [50] => IEP
+                    [51] => ITL
+                    [52] => KPW
+                    [53] => KWD
+                    [54] => LBP
+                    [55] => LTL
+                    [56] => LUF
+                    [57] => LVL
+                    [58] => MNT
+                    [59] => NLG
+                    [60] => OAL
+                    [61] => OBL
+                    [62] => OFR
+                    [63] => ORB
+                    [64] => PKR
+                    [65] => PTE
+                    [66] => ROL
+                    [67] => SDP
+                    [68] => SIT
+                    [69] => SKK
+                    [70] => SUR
+                    [71] => VND
+                    [72] => XEU
+                    [73] => XTR
+                    [74] => YUD
+                )
+
+        )
+
+)
+<br>GetDateInterval()<br>Array
+(
+    [DateInterval] => SimpleXMLElement Object
+        (
+            [@attributes] => Array
+                (
+                    [startdate] => 1949-01-03
+                    [enddate] => 2024-10-21
+                )
+
+        )
+
+)
+</pre>
