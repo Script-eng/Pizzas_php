@@ -1,34 +1,3 @@
-<?php
-// Include the SOAP service
-require_once 'services/MNBSoapService.php';
-
-$service = new MNBSoapService();
-$rates = [];
-$dates = [];
-$currencyPair = 'EUR-HUF';
-$startDate = '';
-$endDate = '';
-
-// Handle the form submission
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $currencyPair = $_POST['currencyPair'] ?? 'EUR-HUF';
-    $startDate = $_POST['startDate'] ?? '';
-    $endDate = $_POST['endDate'] ?? '';
-
-    // Call the SOAP service to get monthly exchange rates
-    try {
-        $rates = $service->getMonthlyExchangeRates($currencyPair, $startDate, $endDate);
-        // Prepare dates and rates for Chart.js
-        foreach ($rates as $rateData) {
-            $dates[] = $rateData['date'];
-            $ratesList[] = $rateData['rate'];
-        }
-    } catch (Exception $e) {
-        $error = 'Error fetching rates: ' . $e->getMessage();
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
 
     <!-- Monthly Rate Lookup Form -->
-    <form method="POST" action="" class="mb-4">
+    <form method="POST" action="index.php?route=monthly-exchange-rate" class="mb-4">
         <div class="form-row align-items-center">
             <div class="col-md-5 mb-3">
                 <label for="currencyPair">Currency Pair (e.g., EUR-HUF):</label>
@@ -70,52 +39,56 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </form>
 
-    <h2 class="text-center">Exchange Rates for <?= $currencyPair; ?> from <?= $startDate; ?> to <?= $endDate; ?></h2>
+    <?php if (!empty($rates)) : ?>
+        <h2 class="text-center">Exchange Rates for <?= htmlspecialchars($currencyPair); ?> from <?= htmlspecialchars($startDate); ?> to <?= htmlspecialchars($endDate); ?></h2>
 
-    <div class="row">
-        <div class="col-md-12">
-            <canvas id="exchangeRateChart"></canvas>
+        <div class="row">
+            <div class="col-md-12">
+                <canvas id="exchangeRateChart"></canvas>
+            </div>
         </div>
-    </div>
+    <?php endif; ?>
 
     <script>
         // Prepare data for the chart
-        const dates = <?php echo json_encode($dates); ?>;
-        const rates = <?php echo json_encode($ratesList); ?>;
+        const dates = <?= json_encode($dates); ?>;
+        const rates = <?= json_encode($ratesList); ?>;
 
-        // Chart.js configuration
-        var ctx = document.getElementById('exchangeRateChart').getContext('2d');
-        var chart = new Chart(ctx, {
-            type: 'line',  // You can use 'line', 'bar', etc.
-            data: {
-                labels: dates,  // x-axis labels
-                datasets: [{
-                    label: 'Exchange Rate for <?= $currencyPair; ?>',
-                    data: rates,  // y-axis values
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    fill: true,
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Date'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'Exchange Rate'
+        if (dates.length && rates.length) {
+            // Chart.js configuration
+            var ctx = document.getElementById('exchangeRateChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: 'Exchange Rate for <?= htmlspecialchars($currencyPair); ?>',
+                        data: rates,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        fill: true,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Date'
+                            }
                         },
-                        beginAtZero: false,
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Exchange Rate'
+                            },
+                            beginAtZero: false,
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
     </script>
 </div>
 

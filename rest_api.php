@@ -31,7 +31,7 @@ class PizzaService {
     }
 
     public function getPizzaById($id) {
-        $sql = "SELECT * FROM pizza WHERE id = ?";
+        $sql = "SELECT * FROM pizza WHERE vegetarian = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $id);
         $stmt->execute();
