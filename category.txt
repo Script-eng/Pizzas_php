@@ -1,5 +1,0 @@
-cname	price
-page	850
-nobleman	950
-king	1250
-knight	1150
